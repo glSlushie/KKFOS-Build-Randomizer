@@ -1,0 +1,83 @@
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+        
+
+    </head>
+
+
+
+    <body>
+        <div class="inventory-layout">
+            <div class="inventory-slot">
+                <!-- RANDOMIZE CLASS-->
+                <p class="slot-title" >Class</p>
+                <p><img id="class-icon" src="../Images/Classes/T_RangerIcon.png"></p>
+                <p id="class-icon1" >Ranger</p>
+                <input type="button" value="Randomize Class" class="randomize-button" onclick="inventory_random('class-icon', 1, ['T_FighterIcon.png', 'T_RangerIcon.png', 'T_TankIcon.png', 'T_TrackerIcon.png', 'T_TrapsterIcon.png'], ['Brawler', 'Ranger', 'Tank', 'Tracker', 'Hunter']);" />
+            </div>
+            
+
+            <div class="inventory-slot">
+                <!-- RANDOMIZE RAYGUN-->
+                <p class="slot-title" >Raygun</p>
+                <p><img id="raygun-slot" src="../Images/RayGuns/T_CottonCandyRayGunV2.png"></p>
+                <p id="raygun-slot1" >Cotton Candy Raygun</p>
+                <input type="button" value="Randomize Raygun" class="randomize-button" onclick="inventory_random('raygun-slot', 0, ['T_CottonCandyRayGun_Charge.png', 'T_CottonCandyRayGun_Mini.png', 'T_CottonCandyRayGun_Mortar.png', 'T_CottonCandyRayGun_Penta.png', 'T_CottonCandyRayGunV2.png'], ['Laser Beamer', 'Gigaray', 'Bouncecaster', 'Pentashot', 'Cotton Candy Raygun']);" />
+            </div>
+            
+
+            <div class="inventory-slot">
+                <!-- RANDOMIZE WEAPON-->
+                <p class="slot-title" >Weapon</p>
+                <p><img id="weapon-icon" src="../Images/Weapons/T_KlownMallet_2.png"></p>
+                <p id="weapon-icon1" >Klown Mallet</p>
+                <input type="button" value="Randomize Weapon" class="randomize-button" onclick="inventory_random('weapon-icon', 3, ['T_BoxingGloves.png', 'T_ExpandableJawBreaker_2.png', 'T_KlownJawBreaker_2.png', 'T_KlownMallet_2.png', 'T_PopCornBazooka_2.png'], ['Boxing Gloves', 'Gobstopper Flail', 'Jawbreaker Mace', 'Klown Mallet', 'Popcorn Bazooka']);" />
+            </div>
+            
+
+            <div class="inventory-slot">
+                <!-- RANDOMIZE TRICK-->
+                <p class="slot-title" >Trick</p>
+                <p><img id="trick-icon" src="../Images/Tricks/T_FingerLure.png"></p>
+                <p id="trick-icon1" >Hypnotic Lure</p>
+                <input type="button" value="Randomize Trick" class="randomize-button" onclick="inventory_random('trick-icon', 2, ['T_BalloonDog.png', 'T_FingerLure.png', 'T_InvisibleCar.png', 'T_PizzaBox.png'], ['Balloon Dog', 'Hypnotic Lure', 'Invisible Car', 'Pizza Box']);" />
+            </div>
+        </div>
+        
+
+        <center>
+        <!-- RANDOMIZE ALL-->
+        <p><input type="button" id="randomAllButton" value="Randomize All" onclick="inventory_random('class-icon', 1, ['T_FighterIcon.png', 'T_RangerIcon.png', 'T_TankIcon.png', 'T_TrackerIcon.png', 'T_TrapsterIcon.png'], ['Brawler', 'Ranger', 'Tank', 'Tracker', 'Hunter']);
+        inventory_random('raygun-slot', 0, ['T_CottonCandyRayGun_Charge.png', 'T_CottonCandyRayGun_Mini.png', 'T_CottonCandyRayGun_Mortar.png', 'T_CottonCandyRayGun_Penta.png', 'T_CottonCandyRayGunV2.png'], ['Laser Beamer', 'Gigaray', 'Bouncecaster', 'Pentashot', 'Cotton Candy Raygun']);
+        inventory_random('weapon-icon', 3, ['T_BoxingGloves.png', 'T_ExpandableJawBreaker_2.png', 'T_KlownJawBreaker_2.png', 'T_KlownMallet_2.png', 'T_PopCornBazooka_2.png'], ['Boxing Gloves', 'Gobstopper Flail', 'Jawbreaker Mace', 'Klown Mallet', 'Popcorn Bazooka']);
+        inventory_random('trick-icon', 2, ['T_BalloonDog.png', 'T_FingerLure.png', 'T_InvisibleCar.png', 'T_PizzaBox.png'], ['Balloon Dog', 'Hypnotic Lure', 'Invisible Car', 'Pizza Box']);" /></p>
+        </center>
+
+
+
+
+        <script>            
+            function inventory_random(id, typeNum, listOfItems, itemNames) 
+            {
+                const type = ["RayGuns/", "Classes/", "Tricks/", "Weapons/"]
+                const iconImages = listOfItems;
+                const titles = itemNames;
+                var max = iconImages.length - 1;
+                var min = 0;
+                var rnd = Math.floor(Math.random() * (max - min + 1)) + min;   //Math.floor(Math.random() * iconImages1.length);
+
+                var icon = "../Images/" + type[typeNum] + iconImages[rnd];
+                document.getElementById(id).src = icon;
+                document.getElementById(id + "1").innerHTML = titles[rnd];
+
+            }
+        </script>
+        
+
+
+    </body>
+</html>
